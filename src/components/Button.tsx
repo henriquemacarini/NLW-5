@@ -1,23 +1,21 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet, TouchableOpacityProps } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import colors from '../styles/colors';
+import fonts from '../styles/fonts';
 
-interface ButtonProps extends TouchableOpacityProps {
-     title: string;
+interface ButtonsProps extends TouchableOpacityProps {
+     title: string,
 }
 
-export function Button({ title, ...rest }: ButtonProps) {
+export function Button({ title, ...rest }: ButtonsProps) {
      return (
-
           <TouchableOpacity
                style={style.button}
-               activeOpacity={0.6}
-               {...rest}
+               {...rest} //Tem q colocar
           >
-               <Text style={style.buttonText}>
+               <Text style={style.text}>
                     {title}
                </Text>
-
           </TouchableOpacity>
      )
 }
@@ -25,15 +23,18 @@ export function Button({ title, ...rest }: ButtonProps) {
 const style = StyleSheet.create({
      button: {
           backgroundColor: colors.green,
+          height: 56,
           borderRadius: 16,
-          marginBottom: 30,
           justifyContent: 'center',
           alignItems: 'center',
-          height: 56,
-          paddingHorizontal: 10,
+          width: '90%',
+
+
      },
-     buttonText: {
+     text: {
+          fontFamily: fonts.text,
           color: colors.white,
-          fontSize: 24,
+          fontSize: 17,
+          textAlign: 'center'
      }
 })
